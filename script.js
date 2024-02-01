@@ -10,22 +10,22 @@ let computerScore = 0;
 const playRound = (computerChoice, playerSelection) => {
   if (playerSelection === "rock" && computerChoice === "scissor") {
     playerScore++;
-    return ` Win! ${playerSelection} beats ${computerChoice}`;
+    return ` Win! ${playerSelection} beats ${computerChoice}\nyour score: ${playerScore}\ncomputer score:${computerScore}`;
   } else if (playerSelection === "paper" && computerChoice === "rock") {
     playerScore++;
-    return ` Win! ${playerSelection} beats ${computerChoice}`;
+    return ` Win! ${playerSelection} beats ${computerChoice}\nyour score: ${playerScore}\ncomputer score:${computerScore}`;
   } else if (playerSelection === "scissor" && computerChoice === "paper") {
     playerScore++;
-    return ` Win! ${playerSelection} beats ${computerChoice}`;
+    return ` Win! ${playerSelection} beats ${computerChoice}\nyour score: ${playerScore}\ncomputer score:${computerScore}`;
   } else if (playerSelection === "scissor" && computerChoice === "scissor") {
-    return `It's a Tie`;
+    return `It's a Tie\nyour score: ${playerScore}\tcomputer score:${computerScore}`;
   } else if (playerSelection === "paper" && computerChoice === "paper") {
-    return `It's a Tie`;
+    return `It's a Tie\nyour score: ${playerScore}\ncomputer score:${computerScore}`;
   } else if (playerSelection === "rock" && computerChoice === "rock") {
-    return `It's a Tie`;
+    return `It's a Tie\nyour score: ${playerScore}\ncomputer score:${computerScore}`;
   } else {
     computerScore++;
-    return ` Lose! ${computerChoice} beats ${playerSelection}`;
+    return ` Lose! ${computerChoice} beats ${playerSelection}\nyour score: ${playerScore}\ncomputer score:${computerScore}`;
   }
 };
 
@@ -37,6 +37,8 @@ const playGame = () => {
   }
   if (playerScore > computerScore) {
     return `You win! your score is ${playerScore}`
+  } else if (playerScore === computerScore) {
+    return `Its a Tie! scores are ${playerScore}:${computerScore}`
   }
   else { return `You Lose! computerScore beat you by ${computerScore} : ${playerScore}` }
 }
